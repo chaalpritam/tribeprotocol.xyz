@@ -1,10 +1,4 @@
 import { 
-  BookOpen, 
-  Layers, 
-  Cpu, 
-  Terminal, 
-  Network, 
-  Github,
   Search
 } from "lucide-react";
 
