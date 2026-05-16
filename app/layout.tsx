@@ -39,7 +39,7 @@ export default function RootLayout({
                 Developers
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
               </a>
-              <a href="https://tribeapp.wtf" className="hover:text-black transition-colors relative group">
+              <a href="/apps" className="hover:text-black transition-colors relative group">
                 Apps
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
               </a>
