@@ -1,0 +1,74 @@
+import { 
+  ShieldCheck, 
+  Share2, 
+  Zap, 
+  Users 
+} from "lucide-react";
+
+export default function DocsOverview() {
+  return (
+    <div className="max-w-3xl">
+      <div className="mb-12">
+        <h1 className="text-4xl font-bold tracking-tight mb-4">Overview</h1>
+        <p className="text-xl text-zinc-500 leading-relaxed">
+          TribeEco is a decentralized social protocol built on Solana. It provides on-chain identity (TID), delegated app keys, human-readable usernames (.tribe), a social graph with an Ephemeral Rollup sequencer, hub registration for peer discovery, and off-chain storage of signed messages.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="p-6 rounded-2xl border border-zinc-200 bg-zinc-50/50">
+          <ShieldCheck className="w-8 h-8 mb-4 text-black" />
+          <h3 className="text-lg font-bold mb-2">Self-Sovereign Identity</h3>
+          <p className="text-sm text-zinc-500 leading-relaxed">
+            Users fully own their identity and social data. No platform can revoke access or censor content at the infrastructure layer.
+          </p>
+        </div>
+        <div className="p-6 rounded-2xl border border-zinc-200 bg-zinc-50/50">
+          <Share2 className="w-8 h-8 mb-4 text-black" />
+          <h3 className="text-lg font-bold mb-2">Open Social Graph</h3>
+          <p className="text-sm text-zinc-500 leading-relaxed">
+            A portable social graph built on Solana PDAs, enabling O(1) checks and efficient on-chain storage.
+          </p>
+        </div>
+        <div className="p-6 rounded-2xl border border-zinc-200 bg-zinc-50/50">
+          <Zap className="w-8 h-8 mb-4 text-black" />
+          <h3 className="text-lg font-bold mb-2">Instant Interactions</h3>
+          <p className="text-sm text-zinc-500 leading-relaxed">
+            Ephemeral Rollup (ER) sequencer provides sub-50ms confirmations for social actions while settling to L1 every 10s.
+          </p>
+        </div>
+        <div className="p-6 rounded-2xl border border-zinc-200 bg-zinc-50/50">
+          <Users className="w-8 h-8 mb-4 text-black" />
+          <h3 className="text-lg font-bold mb-2">Distributed Hubs</h3>
+          <p className="text-sm text-zinc-500 leading-relaxed">
+            Decentralized storage nodes (Hubs) store signed messages and sync via gossip protocol for maximum resilience.
+          </p>
+        </div>
+      </div>
+
+      <h2 className="text-2xl font-bold mb-6">Key Components</h2>
+      <div className="space-y-6">
+        <div className="border-l-4 border-zinc-200 pl-6 py-2">
+          <h4 className="font-bold mb-1">TID (Tribe ID)</h4>
+          <p className="text-sm text-zinc-500">Universal identifier across the entire protocol with built-in recovery.</p>
+        </div>
+        <div className="border-l-4 border-zinc-200 pl-6 py-2">
+          <h4 className="font-bold mb-1">App Keys</h4>
+          <h4 className="font-bold mb-1">Signed Messages</h4>
+          <p className="text-sm text-zinc-500">Self-authenticating off-chain actions validated against on-chain records.</p>
+        </div>
+        <div className="border-l-4 border-zinc-200 pl-6 py-2">
+          <h4 className="font-bold mb-1">Ephemeral Rollup (ER)</h4>
+          <p className="text-sm text-zinc-500">Optimistic sequencer for fast social graph updates.</p>
+        </div>
+      </div>
+
+      <div className="mt-16 pt-8 border-t border-zinc-100 flex justify-between items-center">
+        <div className="text-sm text-zinc-400">Next: Quick Start</div>
+        <a href="/docs/quick-start" className="text-sm font-bold flex items-center gap-1 hover:underline">
+          Quick Start →
+        </a>
+      </div>
+    </div>
+  );
+}
