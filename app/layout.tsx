@@ -49,7 +49,7 @@ export default function RootLayout({
               </a>
             </nav>
             <div className="flex items-center gap-4">
-              <a href="#" className="hidden lg:inline-flex text-sm font-bold px-6 py-2.5 rounded-full border border-zinc-200 hover:bg-zinc-50 transition-all">
+              <a href="/docs/running-a-node" className="hidden lg:inline-flex text-sm font-bold px-6 py-2.5 rounded-full border border-zinc-200 hover:bg-zinc-50 transition-all">
                 Run Node
               </a>
               <a href="/docs" className="text-sm font-bold px-6 py-2.5 rounded-full bg-black text-white hover:bg-zinc-800 transition-all shadow-lg shadow-black/5">

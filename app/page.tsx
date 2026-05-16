@@ -133,7 +133,7 @@ export default function Home() {
                   Join the distributed network and host your own piece of the protocol. Our Homebrew formula handles everything from dependencies to database setup.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <a href="/docs" className="px-8 py-4 rounded-full bg-black text-white font-medium hover:bg-zinc-800 transition-all flex items-center gap-2">
+                  <a href="/docs/running-a-node" className="px-8 py-4 rounded-full bg-black text-white font-medium hover:bg-zinc-800 transition-all flex items-center gap-2">
                     View Setup Guide <ArrowRight className="w-5 h-5" />
                   </a>
                   <a href="/docs/running-a-node" className="px-8 py-4 rounded-full border border-zinc-200 font-medium hover:bg-zinc-50 transition-colors bg-white">
