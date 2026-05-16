@@ -15,19 +15,19 @@ export default function QuickStart() {
       </div>
 
       <h2 className="text-2xl font-bold mb-6">Install the SDK</h2>
-      <div className="bg-zinc-50 border border-zinc-200 text-zinc-900 rounded-2xl p-6 mb-8 font-mono text-sm relative group">
-        <div className="flex justify-between items-center mb-4">
-          <span className="text-zinc-400">Terminal</span>
-          <button className="p-1 hover:bg-zinc-100 rounded transition-colors">
+      <div className="glass rounded-[32px] p-8 mb-10 font-mono text-sm relative group shadow-sm hover:shadow-md transition-all">
+        <div className="flex justify-between items-center mb-6">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400">Terminal</span>
+          <button className="p-2 hover:bg-zinc-100 rounded-xl transition-colors">
             <Copy className="w-4 h-4 text-zinc-400" />
           </button>
         </div>
-        <code className="text-black font-medium">npm install @tribe-protocol/sdk</code>
+        <code className="text-black font-semibold bg-zinc-50 px-4 py-2 rounded-lg border border-zinc-100">npm install @tribe-protocol/sdk</code>
       </div>
 
       <h2 className="text-2xl font-bold mb-6">Connect and Register</h2>
-      <div className="bg-zinc-50 border border-zinc-200 text-zinc-700 rounded-2xl p-6 mb-12 font-mono text-sm overflow-x-auto">
-<pre>{`// Connect to devnet
+      <div className="glass rounded-[32px] p-8 mb-16 font-mono text-sm overflow-x-auto shadow-sm hover:shadow-md transition-all">
+<pre className="bg-zinc-50/50 p-6 rounded-2xl border border-zinc-100 text-zinc-700 leading-relaxed">{`// Connect to devnet
 const provider = new AnchorProvider(connection, wallet, { commitment: "confirmed" });
 const tribe = TribeClient.forDevnet(provider);
 
@@ -42,11 +42,11 @@ await tribe.tweets.publish(tid, "Hello Tribe!", signingKey);`}</pre>
       </div>
 
       <h2 className="text-2xl font-bold mb-6">Run a Tribe Node</h2>
-      <p className="text-zinc-600 mb-6 leading-relaxed">
+      <p className="text-zinc-600 mb-8 leading-relaxed text-lg">
         Join the network by running a full node using Homebrew. This installs the Hub, ER Sequencer, and all dependencies.
       </p>
-      <div className="bg-zinc-50 border border-zinc-200 text-zinc-900 rounded-2xl p-6 mb-8 font-mono text-sm">
-<pre className="text-zinc-600 font-medium">{`brew tap chaalpritam/tribe
+      <div className="glass rounded-[32px] p-8 mb-10 font-mono text-sm shadow-sm hover:shadow-md transition-all">
+<pre className="text-zinc-600 font-medium bg-zinc-50/50 p-6 rounded-2xl border border-zinc-100 leading-relaxed">{`brew tap chaalpritam/tribe
 brew install --HEAD tribe
 tribe start`}</pre>
       </div>

@@ -15,32 +15,40 @@ export default function DocsOverview() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <div className="p-6 rounded-2xl border border-zinc-200 bg-zinc-50/50">
-          <ShieldCheck className="w-8 h-8 mb-4 text-black" />
-          <h3 className="text-lg font-bold mb-2">Self-Sovereign Identity</h3>
-          <p className="text-sm text-zinc-500 leading-relaxed">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="p-8 rounded-[32px] glass hover:bg-zinc-50/50 transition-all group">
+          <div className="w-12 h-12 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 border border-zinc-100 group-hover:bg-black group-hover:text-white transition-all">
+            <ShieldCheck className="w-6 h-6" />
+          </div>
+          <h3 className="text-xl font-bold mb-3">Self-Sovereign Identity</h3>
+          <p className="text-zinc-500 leading-relaxed">
             Users fully own their identity and social data. No platform can revoke access or censor content at the infrastructure layer.
           </p>
         </div>
-        <div className="p-6 rounded-2xl border border-zinc-200 bg-zinc-50/50">
-          <Share2 className="w-8 h-8 mb-4 text-black" />
-          <h3 className="text-lg font-bold mb-2">Open Social Graph</h3>
-          <p className="text-sm text-zinc-500 leading-relaxed">
+        <div className="p-8 rounded-[32px] glass hover:bg-zinc-50/50 transition-all group">
+          <div className="w-12 h-12 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 border border-zinc-100 group-hover:bg-black group-hover:text-white transition-all">
+            <Share2 className="w-6 h-6" />
+          </div>
+          <h3 className="text-xl font-bold mb-3">Open Social Graph</h3>
+          <p className="text-zinc-500 leading-relaxed">
             A portable social graph built on Solana PDAs, enabling O(1) checks and efficient on-chain storage.
           </p>
         </div>
-        <div className="p-6 rounded-2xl border border-zinc-200 bg-zinc-50/50">
-          <Zap className="w-8 h-8 mb-4 text-black" />
-          <h3 className="text-lg font-bold mb-2">Instant Interactions</h3>
-          <p className="text-sm text-zinc-500 leading-relaxed">
+        <div className="p-8 rounded-[32px] glass hover:bg-zinc-50/50 transition-all group">
+          <div className="w-12 h-12 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 border border-zinc-200 group-hover:bg-black group-hover:text-white transition-all">
+            <Zap className="w-6 h-6" />
+          </div>
+          <h3 className="text-xl font-bold mb-3">Instant Interactions</h3>
+          <p className="text-zinc-500 leading-relaxed">
             Ephemeral Rollup (ER) sequencer provides sub-50ms confirmations for social actions while settling to L1 every 10s.
           </p>
         </div>
-        <div className="p-6 rounded-2xl border border-zinc-200 bg-zinc-50/50">
-          <Users className="w-8 h-8 mb-4 text-black" />
-          <h3 className="text-lg font-bold mb-2">Distributed Hubs</h3>
-          <p className="text-sm text-zinc-500 leading-relaxed">
+        <div className="p-8 rounded-[32px] glass hover:bg-zinc-50/50 transition-all group">
+          <div className="w-12 h-12 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 border border-zinc-200 group-hover:bg-black group-hover:text-white transition-all">
+            <Users className="w-6 h-6" />
+          </div>
+          <h3 className="text-xl font-bold mb-3">Distributed Hubs</h3>
+          <p className="text-zinc-500 leading-relaxed">
             Decentralized storage nodes (Hubs) store signed messages and sync via gossip protocol for maximum resilience.
           </p>
         </div>

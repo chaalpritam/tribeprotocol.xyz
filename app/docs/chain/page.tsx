@@ -15,14 +15,14 @@ export default function ChainOverview() {
         </p>
       </div>
 
-      <div className="bg-zinc-50 border border-zinc-200 text-zinc-900 rounded-3xl p-8 mb-12 overflow-hidden relative">
-        <div className="flex items-center gap-2 mb-6">
+      <div className="glass text-zinc-900 rounded-[40px] p-10 md:p-16 mb-16 overflow-hidden relative shadow-sm">
+        <div className="flex items-center gap-2 mb-8">
           <div className="w-3 h-3 rounded-full bg-zinc-200" />
           <div className="w-3 h-3 rounded-full bg-zinc-200" />
           <div className="w-3 h-3 rounded-full bg-zinc-200" />
-          <span className="text-xs text-zinc-400 ml-2 font-mono">Architecture Layers</span>
+          <span className="text-xs text-zinc-400 ml-3 font-bold uppercase tracking-[0.2em]">Architecture Stack</span>
         </div>
-        <pre className="text-xs md:text-sm font-mono leading-relaxed overflow-x-auto text-zinc-600">
+        <pre className="text-xs md:text-sm font-mono leading-relaxed overflow-x-auto text-zinc-600 bg-zinc-50/50 p-8 rounded-3xl border border-zinc-100">
 {`                        Users / Apps
                              |
                        tribe-sdk (TypeScript)
