@@ -47,7 +47,7 @@ export default function Home() {
             Protocol.
           </h1>
           <p className="text-xl md:text-2xl text-zinc-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-            TribeEco is a decentralized social protocol built on Solana. Fully owned identity, portable social graph, and instant peer-to-peer gossip.
+            Tribe Protocol is a decentralized social protocol built on Solana. Fully owned identity, portable social graph, and instant peer-to-peer gossip.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a 

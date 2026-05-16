@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TribeEco Protocol",
+  title: "Tribe Protocol",
   description: "A fully-owned, open social protocol on Solana.",
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({
           <div className="container mx-auto px-6 h-20 flex items-center justify-between">
             <div className="flex items-center gap-3 font-bold text-xl tracking-tighter">
               <div className="w-8 h-8 rounded-xl bg-black flex items-center justify-center text-white text-xs">T</div>
-              <a href="/" className="hover:opacity-80 transition-opacity">TribeEco</a>
+              <a href="/" className="hover:opacity-80 transition-opacity">Tribe Protocol</a>
             </div>
             <nav className="hidden md:flex items-center gap-10 text-sm font-semibold text-zinc-500">
               <a href="/docs" className="hover:text-black transition-colors relative group">
@@ -65,9 +65,9 @@ export default function RootLayout({
           <div className="container mx-auto px-6 text-center">
             <div className="flex items-center justify-center gap-2 font-bold text-lg mb-6">
               <div className="w-6 h-6 rounded-lg bg-black flex items-center justify-center text-white text-[10px]">T</div>
-              TribeEco
+              Tribe Protocol
             </div>
-            <p className="text-zinc-400 text-sm mb-8">© 2026 TribeEco Protocol. Built for the decentralized future on Solana.</p>
+            <p className="text-zinc-400 text-sm mb-8">© 2026 Tribe Protocol. Built for the decentralized future on Solana.</p>
             <div className="flex items-center justify-center gap-8 text-sm font-medium text-zinc-400">
               <a href="#" className="hover:text-black transition-colors">Twitter</a>
               <a href="#" className="hover:text-black transition-colors">GitHub</a>

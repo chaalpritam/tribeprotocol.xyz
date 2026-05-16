@@ -11,7 +11,7 @@ export default function DocsOverview() {
       <div className="mb-12">
         <h1 className="text-4xl font-bold tracking-tight mb-4">Overview</h1>
         <p className="text-xl text-zinc-500 leading-relaxed">
-          TribeEco is a decentralized social protocol built on Solana. It provides on-chain identity (TID), delegated app keys, human-readable usernames (.tribe), a social graph with an Ephemeral Rollup sequencer, hub registration for peer discovery, and off-chain storage of signed messages.
+          Tribe Protocol is a decentralized social protocol built on Solana. It provides on-chain identity (TID), delegated app keys, human-readable usernames (.tribe), a social graph with an Ephemeral Rollup sequencer, hub registration for peer discovery, and off-chain storage of signed messages.
         </p>
       </div>
 
