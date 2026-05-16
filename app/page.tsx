@@ -61,7 +61,7 @@ export default function Home() {
             <motion.a 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              href="#" 
+              href="/docs/protocol/social-graph" 
               className="w-full sm:w-auto px-10 py-5 rounded-full bg-white text-black border-2 border-zinc-200 text-lg font-medium hover:border-black transition-all flex items-center justify-center"
             >
               Explore the Graph
@@ -136,9 +136,9 @@ export default function Home() {
                   <a href="/docs" className="px-8 py-4 rounded-full bg-black text-white font-medium hover:bg-zinc-800 transition-all flex items-center gap-2">
                     View Setup Guide <ArrowRight className="w-5 h-5" />
                   </a>
-                  <button className="px-8 py-4 rounded-full border border-zinc-200 font-medium hover:bg-zinc-50 transition-colors bg-white">
+                  <a href="/docs/running-a-node" className="px-8 py-4 rounded-full border border-zinc-200 font-medium hover:bg-zinc-50 transition-colors bg-white">
                     Docker Setup
-                  </button>
+                  </a>
                 </div>
               </div>
 

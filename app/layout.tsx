@@ -39,11 +39,11 @@ export default function RootLayout({
                 Developers
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
               </a>
-              <a href="#" className="hover:text-black transition-colors relative group">
+              <a href="https://tribeapp.wtf" className="hover:text-black transition-colors relative group">
                 Apps
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
               </a>
-              <a href="#" className="hover:text-black transition-colors relative group">
+              <a href="/docs/api" className="hover:text-black transition-colors relative group">
                 Network
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
               </a>
@@ -69,9 +69,9 @@ export default function RootLayout({
             </div>
             <p className="text-zinc-400 text-sm mb-8">© 2026 Tribe Protocol. Built for the decentralized future on Solana.</p>
             <div className="flex items-center justify-center gap-8 text-sm font-medium text-zinc-400">
-              <a href="#" className="hover:text-black transition-colors">Twitter</a>
-              <a href="#" className="hover:text-black transition-colors">GitHub</a>
-              <a href="#" className="hover:text-black transition-colors">Discord</a>
+              <a href="https://x.com/tribeprotocol" className="hover:text-black transition-colors">Twitter</a>
+              <a href="https://github.com/chaalpritam/tribeeco" className="hover:text-black transition-colors">GitHub</a>
+              <a href="https://t.me/tribeprotocol" className="hover:text-black transition-colors">Telegram</a>
             </div>
           </div>
         </footer>
