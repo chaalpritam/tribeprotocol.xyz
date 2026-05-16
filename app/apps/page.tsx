@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { 
-  Twitter, 
-  Instagram, 
+  MessageCircle, 
+  Camera, 
   Globe, 
-  PlayCircle, 
+  Play, 
   ArrowUpRight,
   Layout,
   Smartphone
@@ -16,7 +16,7 @@ const apps = [
     name: "Tribe iOS",
     description: "A fast, decentralized microblogging experience. The flagship social app for Tribe Protocol on mobile.",
     type: "Twitter-like",
-    icon: Twitter,
+    icon: MessageCircle,
     platform: "iOS",
     link: "#",
     tag: "Native"
@@ -25,7 +25,7 @@ const apps = [
     name: "Tribe Insta",
     description: "Visual storytelling powered by Solana. Share your moments directly to the open social graph.",
     type: "Instagram-like",
-    icon: Instagram,
+    icon: Camera,
     platform: "iOS / Android",
     link: "#",
     tag: "Visual"
@@ -43,14 +43,14 @@ const apps = [
     name: "Tribe Demo",
     description: "A sandbox application for developers to see Tribe SDK in action. Includes sample code and live protocol interactions.",
     type: "Developer Tool",
-    icon: PlayCircle,
+    icon: Play,
     platform: "Web",
     link: "#",
     tag: "Demo"
   }
 ];
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -60,9 +60,9 @@ const container = {
   }
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
 export default function AppsPage() {
