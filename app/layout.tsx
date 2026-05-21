@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -25,53 +20,68 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${inter.variable} antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col bg-white text-zinc-900 selection:bg-black selection:text-white">
-        <header className="sticky top-0 z-50 w-full glass border-b border-zinc-100">
-          <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-            <div className="flex items-center gap-3 font-bold text-xl tracking-tighter">
-              <div className="w-8 h-8 rounded-xl bg-black flex items-center justify-center text-white text-xs">T</div>
-              <a href="/" className="hover:opacity-80 transition-opacity">Tribe Protocol</a>
-            </div>
-            <nav className="hidden md:flex items-center gap-10 text-sm font-semibold text-zinc-500">
-              <a href="/docs" className="hover:text-black transition-colors relative group">
-                Developers
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
+      <body className="min-h-screen flex flex-col bg-white text-black selection:bg-primary/20 selection:text-black">
+        {/* Floating Glass Navigation Header */}
+        <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-[800px]">
+          <div className="flex items-center justify-between rounded-full bg-[#f5f5f5]/60 p-2.5 backdrop-blur-md nav-pill-shadow border border-zinc-100/50 hover:bg-[#f5f5f5]/85 transition-all duration-300">
+            <a href="/" className="flex items-center gap-2 pl-4 font-black text-[18px] tracking-tight hover:opacity-80 transition-opacity">
+              <span className="text-[20px] font-black text-black">tribe</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20 px-2.5 py-0.5 rounded-full bg-primary/5">
+                protocol
+              </span>
+            </a>
+            
+            <nav className="hidden md:flex items-center gap-1">
+              <a href="/docs" className="px-4 py-2 text-[13px] font-bold text-zinc-500 hover:text-black transition-colors rounded-full hover:bg-black/5">
+                Docs
               </a>
-              <a href="/apps" className="hover:text-black transition-colors relative group">
+              <a href="/apps" className="px-4 py-2 text-[13px] font-bold text-zinc-500 hover:text-black transition-colors rounded-full hover:bg-black/5">
                 Apps
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
               </a>
-              <a href="/docs/api" className="hover:text-black transition-colors relative group">
+              <a href="/docs/api" className="px-4 py-2 text-[13px] font-bold text-zinc-500 hover:text-black transition-colors rounded-full hover:bg-black/5">
                 Network
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
+              </a>
+              <a href="/docs/running-a-node" className="px-4 py-2 text-[13px] font-bold text-zinc-500 hover:text-black transition-colors rounded-full hover:bg-black/5">
+                Node Setup
               </a>
             </nav>
-            <div className="flex items-center gap-4">
-              <a href="/docs/running-a-node" className="hidden lg:inline-flex text-sm font-bold px-6 py-2.5 rounded-full border border-zinc-200 hover:bg-zinc-50 transition-all">
-                Run Node
-              </a>
-              <a href="/docs" className="text-sm font-bold px-6 py-2.5 rounded-full bg-black text-white hover:bg-zinc-800 transition-all shadow-lg shadow-black/5">
-                Read Docs
-              </a>
-            </div>
+
+            <a 
+              href="/docs" 
+              className="rounded-full bg-primary px-6 py-2.5 text-[13px] font-bold text-white transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20 hover:shadow-primary/30"
+            >
+              Get Started
+            </a>
           </div>
         </header>
-        <main className="flex-1">
+
+        <main className="flex-1 pt-12">
           {children}
         </main>
-        <footer className="border-t border-zinc-100 bg-zinc-50/50 py-20">
-          <div className="container mx-auto px-6 text-center">
-            <div className="flex items-center justify-center gap-2 font-bold text-lg mb-6">
-              <div className="w-6 h-6 rounded-lg bg-black flex items-center justify-center text-white text-[10px]">T</div>
-              Tribe Protocol
+
+        {/* Minimal Premium Footer styled like tribeapp.wtf */}
+        <footer className="border-t border-[#f0f0f0] bg-zinc-50/20 py-16">
+          <div className="container mx-auto max-w-[1200px] px-8 flex flex-col items-center justify-between gap-8 sm:flex-row">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl font-black tracking-tighter">tribe</span>
+              <span className="text-xs font-bold opacity-30 uppercase tracking-widest">&copy; 2026 · MIT License</span>
             </div>
-            <p className="text-zinc-400 text-sm mb-8">© 2026 Tribe Protocol. Built for the decentralized future on Solana.</p>
-            <div className="flex items-center justify-center gap-8 text-sm font-medium text-zinc-400">
-              <a href="https://x.com/tribeprotocol" className="hover:text-black transition-colors">Twitter</a>
-              <a href="https://github.com/chaalpritam/tribeeco" className="hover:text-black transition-colors">GitHub</a>
-              <a href="https://t.me/tribeprotocol" className="hover:text-black transition-colors">Telegram</a>
+
+            <div className="flex flex-wrap justify-center gap-8 text-sm font-bold text-[#666]">
+              <a href="/docs" className="hover:text-black transition-colors">Documentation</a>
+              <a href="/apps" className="hover:text-black transition-colors">Ecosystem Apps</a>
+              <a href="/docs/api" className="hover:text-black transition-colors">API Specs</a>
+              <a
+                href="https://github.com/chaalpritam/tribeeco"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-black transition-colors"
+              >
+                GitHub
+              </a>
             </div>
           </div>
         </footer>
