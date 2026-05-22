@@ -35,26 +35,36 @@ const apps: {
   },
   {
     name: "Tribe",
-    description: "Native SwiftUI iOS app — Twitter-shaped client with full read/write against the hub and ER. BLAKE3 + ed25519 signing via Apple CryptoKit; NaCl-box encrypted DMs.",
-    type: "Native · Twitter-shaped",
-    icon: MessageCircle,
+    description: "The native Tribe iOS app — SwiftUI client with full read/write against the hub and ER. BLAKE3 + ed25519 signing via Apple CryptoKit; NaCl-box encrypted DMs.",
+    type: "Native · iOS",
+    icon: Smartphone,
     platform: "iOS",
     link: "https://github.com/chaalpritam/tribe",
     tag: "Native",
     status: "live"
   },
   {
+    name: "tribe-ios",
+    description: "Twitter-shaped SwiftUI reference client for Tribe Protocol. Microblogging timeline, follows, and signed envelopes — built on the same hub + ER stack as Tribe.",
+    type: "Native · Twitter-shaped",
+    icon: MessageCircle,
+    platform: "iOS",
+    link: "https://github.com/chaalpritam/tribe-ios",
+    tag: "Client",
+    status: "live"
+  },
+  {
     name: "Tribe Android",
     description: "Native Android client for Tribe Protocol — same hub, same signed envelopes, same social graph. Built to match the iOS app feature-for-feature.",
     type: "Native · Twitter-shaped",
-    icon: Smartphone,
+    icon: Layout,
     platform: "Android",
     tag: "Native",
     status: "coming-soon"
   },
   {
     name: "Tribe Insta",
-    description: "Native SwiftUI client, Instagram-shaped — photo grid, stories, reels. Sister to Tribe iOS: same hub, same envelope format, different surface.",
+    description: "Native SwiftUI client, Instagram-shaped — photo grid, stories, reels. Sister to tribe-ios: same hub, same envelope format, different surface.",
     type: "Native · Instagram-shaped",
     icon: Camera,
     platform: "iOS",
