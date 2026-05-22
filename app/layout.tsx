@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,8 +9,44 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Tribe Protocol",
-  description: "A fully-owned, open social protocol on Solana.",
+  metadataBase: new URL("https://tribeprotocol.xyz"),
+  title: {
+    default: "Tribe Protocol — The Open Social Protocol on Solana",
+    template: "%s · Tribe Protocol",
+  },
+  description:
+    "Decentralized social on Solana. Own your identity, run a hub, fork the client. 12 Anchor programs, signed-envelope storage, gossip-synced hubs, and an Ephemeral Rollup for sub-50ms social actions.",
+  keywords: [
+    "Solana",
+    "social protocol",
+    "decentralized social",
+    "Tribe",
+    "Anchor",
+    "Ephemeral Rollup",
+    "self-sovereign identity",
+    "TID",
+    "gossip protocol",
+  ],
+  authors: [{ name: "Tribe Protocol" }],
+  openGraph: {
+    title: "Tribe Protocol — The Open Social Protocol on Solana",
+    description:
+      "Own your identity, run a hub, fork the client. Decentralized social on Solana with signed envelopes, gossip-synced hubs, and an Ephemeral Rollup.",
+    url: "https://tribeprotocol.xyz",
+    siteName: "Tribe Protocol",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tribe Protocol",
+    description:
+      "The open social protocol on Solana. Own your identity, run a hub, fork the client.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -27,12 +64,12 @@ export default function RootLayout({
         {/* Floating Glass Navigation Header */}
         <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-[800px]">
           <div className="flex items-center justify-between rounded-full bg-[#f5f5f5]/60 p-2.5 backdrop-blur-md nav-pill-shadow border border-zinc-100/50 hover:bg-[#f5f5f5]/85 transition-all duration-300">
-            <a href="/" className="flex items-center gap-2 pl-4 font-black text-[18px] tracking-tight hover:opacity-80 transition-opacity">
+            <Link href="/" className="flex items-center gap-2 pl-4 font-black text-[18px] tracking-tight hover:opacity-80 transition-opacity">
               <span className="text-[20px] font-black text-black">tribe</span>
               <span className="text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20 px-2.5 py-0.5 rounded-full bg-primary/5">
                 protocol
               </span>
-            </a>
+            </Link>
             
             <nav className="hidden md:flex items-center gap-1">
               <a href="/docs" className="px-4 py-2 text-[13px] font-bold text-zinc-500 hover:text-black transition-colors rounded-full hover:bg-black/5">
