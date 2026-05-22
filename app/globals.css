@@ -1,6 +1,8 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
 
 :root {
+  --font-inter: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --background: #FFFFFF;
   --foreground: #000000;
   --primary: #FC4F37; /* Convos Orange-Red */
