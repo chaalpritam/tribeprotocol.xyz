@@ -1,16 +1,28 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { 
-  MessageCircle, 
-  Camera, 
-  Globe, 
-  Play, 
+import {
+  MessageCircle,
+  Camera,
+  Globe,
+  Play,
   ArrowUpRight,
-  Layout
+  Layout,
+  Smartphone,
 } from "lucide-react";
 
-const apps = [
+type AppStatus = "live" | "scaffolding" | "coming-soon";
+
+const apps: {
+  name: string;
+  description: string;
+  type: string;
+  icon: typeof Globe;
+  platform: string;
+  link?: string;
+  tag: string;
+  status: AppStatus;
+}[] = [
   {
     name: "tribeapp.wtf",
     description: "The primary web client for Tribe Protocol. Sign in with a Solana wallet, manage your TID and .tribe username, and post to any hub.",
@@ -22,14 +34,23 @@ const apps = [
     status: "live"
   },
   {
-    name: "Tribe iOS",
-    description: "Native SwiftUI client, Twitter-shaped. Full read/write against the hub and ER. BLAKE3 + ed25519 signing via Apple CryptoKit; NaCl-box encrypted DMs.",
+    name: "Tribe",
+    description: "Native SwiftUI iOS app — Twitter-shaped client with full read/write against the hub and ER. BLAKE3 + ed25519 signing via Apple CryptoKit; NaCl-box encrypted DMs.",
     type: "Native · Twitter-shaped",
     icon: MessageCircle,
     platform: "iOS",
-    link: "https://github.com/chaalpritam/tribe-ios",
+    link: "https://github.com/chaalpritam/tribe",
     tag: "Native",
     status: "live"
+  },
+  {
+    name: "Tribe Android",
+    description: "Native Android client for Tribe Protocol — same hub, same signed envelopes, same social graph. Built to match the iOS app feature-for-feature.",
+    type: "Native · Twitter-shaped",
+    icon: Smartphone,
+    platform: "Android",
+    tag: "Native",
+    status: "coming-soon"
   },
   {
     name: "Tribe Insta",
@@ -116,6 +137,11 @@ export default function AppsPage() {
                       Scaffolding
                     </span>
                   )}
+                  {app.status === "coming-soon" && (
+                    <span className="px-2.5 py-1 rounded-full bg-zinc-100 text-[10px] font-bold uppercase tracking-wider text-zinc-600 border border-zinc-200">
+                      Coming Soon
+                    </span>
+                  )}
                 </div>
 
                 <h3 className="text-3xl font-bold mb-4">{app.name}</h3>
@@ -127,14 +153,21 @@ export default function AppsPage() {
                   <span className="text-sm font-bold text-black/40 italic">
                     {app.type}
                   </span>
-                  <a
-                    href={app.link}
-                    target={app.link.startsWith("http") ? "_blank" : undefined}
-                    rel={app.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-2 font-bold text-sm bg-black text-white px-6 py-3 rounded-full hover:bg-zinc-800 transition-all shadow-lg shadow-black/10"
-                  >
-                    {app.status === "scaffolding" ? "View Source" : "Open"} <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                  {app.status === "coming-soon" ? (
+                    <span className="flex items-center gap-2 font-bold text-sm bg-zinc-100 text-zinc-400 px-6 py-3 rounded-full cursor-not-allowed">
+                      Coming Soon
+                    </span>
+                  ) : (
+                    <a
+                      href={app.link}
+                      target={app.link?.startsWith("http") ? "_blank" : undefined}
+                      rel={app.link?.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="flex items-center gap-2 font-bold text-sm bg-black text-white px-6 py-3 rounded-full hover:bg-zinc-800 transition-all shadow-lg shadow-black/10"
+                    >
+                      {app.status === "scaffolding" ? "View Source" : "Open"}{" "}
+                      <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
