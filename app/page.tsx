@@ -14,7 +14,7 @@ import {
   Smartphone,
   Code2,
   Layers,
-  Github,
+  GitBranch,
   ExternalLink,
   ArrowRight,
   ArrowDown,
@@ -506,7 +506,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[13px] font-bold text-black transition-all hover:scale-[1.02]"
               >
-                <Github className="h-4 w-4" />
+                <GitBranch className="h-4 w-4" />
                 tribe-protocol on GitHub
                 <ArrowRight className="h-4 w-4 text-primary" />
               </a>
@@ -516,7 +516,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-[13px] font-bold text-white transition-all hover:bg-white/20"
               >
-                <Github className="h-4 w-4" />
+                <GitBranch className="h-4 w-4" />
                 tribe-hub on GitHub
               </a>
             </div>
@@ -626,7 +626,7 @@ await tribe.social.follow(tid, targetTid);`}</code>
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-bold text-white transition-all hover:scale-[1.02]"
                 >
-                  <Github className="h-4 w-4" />
+                  <GitBranch className="h-4 w-4" />
                   tribe-sdk on GitHub
                   <ArrowRight className="h-4 w-4 text-primary" />
                 </a>
@@ -642,7 +642,7 @@ await tribe.social.follow(tid, targetTid);`}</code>
             <div className="mb-12 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-end">
               <div>
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider">
-                  <Github className="h-4 w-4 text-primary" />
+                  <GitBranch className="h-4 w-4 text-primary" />
                   Open source · MIT License
                 </div>
                 <h2 className="text-[40px] font-black leading-[1.1] tracking-[-1.5px] sm:text-[56px]">
@@ -670,7 +670,7 @@ await tribe.social.follow(tid, targetTid);`}</code>
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2.5">
-                        <Github className="h-4 w-4 opacity-70 group-hover:opacity-100 text-primary transition-opacity" />
+                        <GitBranch className="h-4 w-4 opacity-70 group-hover:opacity-100 text-primary transition-opacity" />
                         <code className="text-[13.5px] font-bold tracking-tight text-white/95">{repo.name}</code>
                       </div>
                       <ExternalLink className="h-3.5 w-3.5 opacity-30 group-hover:opacity-100 transition-opacity" />
@@ -690,7 +690,7 @@ await tribe.social.follow(tid, targetTid);`}</code>
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-[14px] font-black text-black transition-all hover:scale-[1.02] active:scale-95 shadow-lg"
               >
-                <Github className="h-4 w-4" />
+                <GitBranch className="h-4 w-4" />
                 Browse the Mono-repo
                 <ArrowRight className="h-4 w-4 text-primary" />
               </a>
