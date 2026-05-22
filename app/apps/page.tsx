@@ -7,46 +7,49 @@ import {
   Globe, 
   Play, 
   ArrowUpRight,
-  Layout,
-  Smartphone
+  Layout
 } from "lucide-react";
 
 const apps = [
   {
-    name: "Tribe iOS",
-    description: "A fast, decentralized microblogging experience. The flagship social app for Tribe Protocol on mobile.",
-    type: "Twitter-like",
-    icon: MessageCircle,
-    platform: "iOS",
-    link: "#",
-    tag: "Native"
-  },
-  {
-    name: "Tribe Insta",
-    description: "Visual storytelling powered by Solana. Share your moments directly to the open social graph.",
-    type: "Instagram-like",
-    icon: Camera,
-    platform: "iOS / Android",
-    link: "#",
-    tag: "Visual"
-  },
-  {
-    name: "TribeApp.wtf",
-    description: "The primary web interface for Tribe Protocol. Access your feed, manage your TID, and explore the network from any browser.",
-    type: "Web Client",
+    name: "tribeapp.wtf",
+    description: "The primary web client for Tribe Protocol. Sign in with a Solana wallet, manage your TID and .tribe username, and post to any hub.",
+    type: "Web · Twitter-shaped",
     icon: Globe,
     platform: "Web",
     link: "https://tribeapp.wtf",
-    tag: "Web"
+    tag: "Primary",
+    status: "live"
   },
   {
-    name: "Tribe Demo",
-    description: "A sandbox application for developers to see Tribe SDK in action. Includes sample code and live protocol interactions.",
-    type: "Developer Tool",
+    name: "Tribe iOS",
+    description: "Native SwiftUI client, Twitter-shaped. Full read/write against the hub and ER. BLAKE3 + ed25519 signing via Apple CryptoKit; NaCl-box encrypted DMs.",
+    type: "Native · Twitter-shaped",
+    icon: MessageCircle,
+    platform: "iOS",
+    link: "https://github.com/chaalpritam/tribe-ios",
+    tag: "Native",
+    status: "live"
+  },
+  {
+    name: "Tribe Insta",
+    description: "Native SwiftUI client, Instagram-shaped — photo grid, stories, reels. Sister to Tribe iOS: same hub, same envelope format, different surface.",
+    type: "Native · Instagram-shaped",
+    icon: Camera,
+    platform: "iOS",
+    link: "https://github.com/chaalpritam/tribe-insta",
+    tag: "Native",
+    status: "scaffolding"
+  },
+  {
+    name: "tribe-app (demo)",
+    description: "Next.js demo UI shipped via `brew install tribe-app`. Point it at any hub with `tribe-app link <hub-url>` and explore the SDK in a browser.",
+    type: "Web · Developer demo",
     icon: Play,
-    platform: "Web",
-    link: "#",
-    tag: "Demo"
+    platform: "Web · Homebrew",
+    link: "https://github.com/chaalpritam/tribe-demo-app",
+    tag: "Demo",
+    status: "live"
   }
 ];
 
@@ -101,13 +104,18 @@ export default function AppsPage() {
                   <app.icon className="w-8 h-8 text-black" />
                 </div>
                 
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-3 mb-4 flex-wrap">
                   <span className="px-3 py-1 rounded-full bg-zinc-100 text-[10px] font-bold uppercase tracking-wider text-zinc-500 group-hover:bg-zinc-200">
                     {app.tag}
                   </span>
                   <span className="text-xs font-medium text-zinc-400">
                     {app.platform}
                   </span>
+                  {app.status === "scaffolding" && (
+                    <span className="px-2.5 py-1 rounded-full bg-amber-50 text-[10px] font-bold uppercase tracking-wider text-amber-700 border border-amber-100">
+                      Scaffolding
+                    </span>
+                  )}
                 </div>
 
                 <h3 className="text-3xl font-bold mb-4">{app.name}</h3>
@@ -119,11 +127,13 @@ export default function AppsPage() {
                   <span className="text-sm font-bold text-black/40 italic">
                     {app.type}
                   </span>
-                  <a 
+                  <a
                     href={app.link}
+                    target={app.link.startsWith("http") ? "_blank" : undefined}
+                    rel={app.link.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="flex items-center gap-2 font-bold text-sm bg-black text-white px-6 py-3 rounded-full hover:bg-zinc-800 transition-all shadow-lg shadow-black/10"
                   >
-                    Launch App <ArrowUpRight className="w-4 h-4" />
+                    {app.status === "scaffolding" ? "View Source" : "Open"} <ArrowUpRight className="w-4 h-4" />
                   </a>
                 </div>
               </div>
