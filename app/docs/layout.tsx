@@ -1,6 +1,16 @@
-import { 
+import type { Metadata } from "next";
+import {
   Search
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Docs",
+    template: "%s · Docs · Tribe Protocol",
+  },
+  description:
+    "Developer documentation for Tribe Protocol — TID identity, social graph, Ephemeral Rollup, hub API, SDK reference, and running a node.",
+};
 
 export default function DocsLayout({
   children,

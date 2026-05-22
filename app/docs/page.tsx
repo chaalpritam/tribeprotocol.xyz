@@ -1,9 +1,16 @@
-import { 
-  ShieldCheck, 
-  Share2, 
-  Zap, 
-  Users 
+import type { Metadata } from "next";
+import {
+  ShieldCheck,
+  Share2,
+  Zap,
+  Users
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Overview",
+  description:
+    "Tribe Protocol overview — on-chain identity, delegated app keys, .tribe usernames, social graph with ER, hub registration, and signed message storage.",
+};
 
 export default function DocsOverview() {
   return (
@@ -62,8 +69,11 @@ export default function DocsOverview() {
         </div>
         <div className="border-l-4 border-zinc-200 pl-6 py-2">
           <h4 className="font-bold mb-1">App Keys</h4>
+          <p className="text-sm text-zinc-500">Scoped ed25519 signing keys delegated by your TID — rotatable, revocable, and granular.</p>
+        </div>
+        <div className="border-l-4 border-zinc-200 pl-6 py-2">
           <h4 className="font-bold mb-1">Signed Messages</h4>
-          <p className="text-sm text-zinc-500">Self-authenticating off-chain actions validated against on-chain records.</p>
+          <p className="text-sm text-zinc-500">Self-authenticating off-chain envelopes validated against on-chain app-key records.</p>
         </div>
         <div className="border-l-4 border-zinc-200 pl-6 py-2">
           <h4 className="font-bold mb-1">Ephemeral Rollup (ER)</h4>
