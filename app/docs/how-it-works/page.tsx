@@ -1,9 +1,15 @@
-import { 
-  ArrowRight, 
-  Lock, 
-  RefreshCw, 
-  Server 
+import type { Metadata } from "next";
+import {
+  Lock,
+  RefreshCw,
+  Server
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "How it Works",
+  description:
+    "The Tribe trust model — on-chain registration, off-chain signing, hub verification — plus pull-based gossip and the 10s ER settlement loop.",
+};
 
 export default function HowItWorks() {
   return (
@@ -21,7 +27,7 @@ export default function HowItWorks() {
             <Lock className="w-6 h-6" /> The Trust Model
           </h2>
           <p className="text-zinc-600 mb-6 leading-relaxed">
-            Content on Tribe is stored off-chain on Hubs to ensure speed and low cost. However, every piece of content is cryptographically signed and verifiable against the user's on-chain identity.
+            Content on Tribe is stored off-chain on Hubs to ensure speed and low cost. However, every piece of content is cryptographically signed and verifiable against the user&apos;s on-chain identity.
           </p>
           <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-8 space-y-4">
             <div className="flex items-start gap-4">
@@ -53,22 +59,24 @@ export default function HowItWorks() {
             <RefreshCw className="w-6 h-6" /> Gossip Synchronization
           </h2>
           <p className="text-zinc-600 mb-6 leading-relaxed">
-            Hubs sync messages with each other via a custom gossip protocol. This ensures that even if one hub goes down, the content remains available across the network.
+            Hubs sync over a pull-based WebSocket gossip protocol — every 5 seconds, peers exchange four frame types. The result is eventual consistency without a central broker.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl border border-zinc-200 bg-zinc-50/50">
-              <div className="font-bold text-sm mb-1 uppercase tracking-wider text-zinc-400">HAVE</div>
-              <p className="text-xs text-zinc-500">Hubs broadcast hashes of new messages they've received.</p>
-            </div>
-            <div className="p-4 rounded-xl border border-zinc-200 bg-zinc-50/50">
-              <div className="font-bold text-sm mb-1 uppercase tracking-wider text-zinc-400">NEED</div>
-              <p className="text-xs text-zinc-500">Peers request missing messages by their hashes.</p>
-            </div>
-            <div className="p-4 rounded-xl border border-zinc-200 bg-zinc-50/50">
-              <div className="font-bold text-sm mb-1 uppercase tracking-wider text-zinc-400">SYNC</div>
-              <p className="text-xs text-zinc-500">Full messages are exchanged to reach eventual consistency.</p>
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { tag: "HELLO", desc: "Handshake — exchange hub IDs and last-seen vector clocks." },
+              { tag: "HAVE", desc: "Broadcast BLAKE3 hashes of recently-stored envelopes." },
+              { tag: "WANT", desc: "Reply with hashes the peer is missing." },
+              { tag: "MESSAGES", desc: "Full signed envelopes flow back to fill the gaps." },
+            ].map((f) => (
+              <div key={f.tag} className="p-4 rounded-xl border border-zinc-200 bg-zinc-50/50">
+                <div className="font-bold text-sm mb-1 uppercase tracking-wider text-zinc-400 font-mono">{f.tag}</div>
+                <p className="text-xs text-zinc-500 leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
           </div>
+          <p className="text-sm text-zinc-500 mt-4 leading-relaxed">
+            New hubs catch up immediately via <code className="font-mono text-xs px-1 py-0.5 bg-zinc-100 rounded">tribe sync --peer all</code>, which forces a 30-day <code className="font-mono text-xs px-1 py-0.5 bg-zinc-100 rounded">HAVE</code> blast at every connected peer instead of waiting for the next 5 s tick.
+          </p>
         </section>
 
         <section>

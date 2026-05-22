@@ -1,8 +1,13 @@
-import { 
-  Terminal, 
-  Copy, 
-  Check 
+import type { Metadata } from "next";
+import {
+  Copy
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Quick Start",
+  description:
+    "Install @tribe-protocol/sdk, register a TID, publish a signed post, and optionally spin up a hub + ER stack with Homebrew.",
+};
 
 export default function QuickStart() {
   return (
@@ -43,12 +48,16 @@ await tribe.tweets.publish(tid, "Hello Tribe!", signingKey);`}</pre>
 
       <h2 className="text-2xl font-bold mb-6">Run a Tribe Node</h2>
       <p className="text-zinc-600 mb-8 leading-relaxed text-lg">
-        Join the network by running a full node using Homebrew. This installs the Hub, ER Sequencer, and all dependencies.
+        Join the network by running a full node via Homebrew. The <code className="font-mono text-sm px-1 py-0.5 bg-zinc-100 rounded">tribe</code> formula installs the hub and the ER sequencer plus their Postgres databases. The demo UI ships as a separate formula.
       </p>
       <div className="glass rounded-[32px] p-8 mb-10 font-mono text-sm shadow-sm hover:shadow-md transition-all">
 <pre className="text-zinc-600 font-medium bg-zinc-50/50 p-6 rounded-2xl border border-zinc-100 leading-relaxed">{`brew tap chaalpritam/tribe
 brew install --HEAD tribe
-tribe start`}</pre>
+tribe start
+
+# Optional: install the demo UI on top
+brew install --HEAD tribe-app
+tribe-app`}</pre>
       </div>
 
       <div className="mt-16 pt-8 border-t border-zinc-100 flex justify-between items-center">

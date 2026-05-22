@@ -1,9 +1,15 @@
-import { 
-  Database, 
-  Shield, 
-  Zap, 
-  Network 
+import type { Metadata } from "next";
+import {
+  Shield,
+  Zap,
+  Network
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Chain Overview",
+  description:
+    "Layered architecture of Tribe Protocol — twelve Anchor programs on Solana, the Ephemeral Rollup sequencer, and the distributed hub layer.",
+};
 
 export default function ChainOverview() {
   return (
@@ -46,28 +52,34 @@ export default function ChainOverview() {
             <div className="p-2 rounded-lg bg-zinc-100 border border-zinc-200">
               <Shield className="w-5 h-5" />
             </div>
-            <h3 className="text-xl font-bold">Layer 1: Solana Programs</h3>
+            <h3 className="text-xl font-bold">Layer 1: Solana Programs (12)</h3>
           </div>
           <p className="text-zinc-600 mb-6 leading-relaxed">
-            The source of truth for all ownership and identity. Four core programs store data that is permanent and censorship-resistant.
+            The source of truth for all ownership, identity, and value. Twelve independently-deployed Anchor programs, each focused on one concern.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-4 rounded-xl border border-zinc-200">
-              <div className="font-bold text-sm mb-1">tid-registry</div>
-              <p className="text-xs text-zinc-500">Universal numeric identity (TID) with custody and recovery addresses.</p>
-            </div>
-            <div className="p-4 rounded-xl border border-zinc-200">
-              <div className="font-bold text-sm mb-1">app-key-registry</div>
-              <p className="text-xs text-zinc-500">Delegated ed25519 keys for signing off-chain social messages.</p>
-            </div>
-            <div className="p-4 rounded-xl border border-zinc-200">
-              <div className="font-bold text-sm mb-1">username-registry</div>
-              <p className="text-xs text-zinc-500">Human-readable names (.tribe) bound to TIDs with annual renewal.</p>
-            </div>
-            <div className="p-4 rounded-xl border border-zinc-200">
-              <div className="font-bold text-sm mb-1">social-graph</div>
-              <p className="text-xs text-zinc-500">PDA-per-relationship graph for follow/unfollow actions.</p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              { name: "tid-registry", desc: "Universal numeric identity (TID) with custody and recovery." },
+              { name: "app-key-registry", desc: "Delegated ed25519 keys for off-chain signing." },
+              { name: "username-registry", desc: ".tribe usernames bound to TIDs with annual renewal." },
+              { name: "social-graph", desc: "PDA-per-relationship follow graph with ER delegation." },
+              { name: "hub-registry", desc: "On-chain hub discovery — URL, gossip key, heartbeat." },
+              { name: "tip-registry", desc: "On-chain SOL tip receipts in a single instruction." },
+              { name: "crowdfund-registry", desc: "Campaign escrow — pledge, claim, or refund." },
+              { name: "task-registry", desc: "Local tasks with optional reward escrow." },
+              { name: "channel-registry", desc: "First-registration ownership of channel slugs." },
+              { name: "karma-registry", desc: "Trustless karma from on-chain tip + task proofs." },
+              { name: "poll-registry", desc: "One-vote-per-TID polls with an 8-slot tally." },
+              { name: "event-registry", desc: "Events with one-RSVP-per-TID and optional lat/lng." },
+            ].map((p) => (
+              <div key={p.name} className="p-4 rounded-xl border border-zinc-200">
+                <div className="font-mono font-bold text-sm mb-1">{p.name}</div>
+                <p className="text-xs text-zinc-500 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 p-5 rounded-2xl bg-zinc-50 border border-zinc-100 text-sm text-zinc-600 leading-relaxed">
+            <strong className="font-bold">Devnet deployed:</strong> identity, social-graph, polls, and events are deployed to Solana devnet with the program IDs in <code className="font-mono text-xs px-1 py-0.5 bg-white border border-zinc-200 rounded">tribe-protocol/Anchor.toml</code>. The remaining registries (hub, tips, crowdfunds, tasks, channels, karma) are pending devnet keys.
           </div>
         </section>
 
