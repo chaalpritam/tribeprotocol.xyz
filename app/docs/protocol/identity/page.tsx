@@ -1,9 +1,14 @@
-import { 
-  Fingerprint, 
-  User, 
-  Key, 
-  RefreshCw 
+import type { Metadata } from "next";
+import {
+  User,
+  RefreshCw
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Identity (TID)",
+  description:
+    "Tribe ID — a Solana PDA-backed numeric identity with custody and recovery wallets, delegated ed25519 app keys, and .tribe usernames.",
+};
 
 export default function IdentityDocs() {
   return (

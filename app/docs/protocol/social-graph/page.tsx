@@ -1,9 +1,13 @@
-import { 
-  Network, 
-  Share2, 
-  Database, 
-  ArrowRightLeft 
+import type { Metadata } from "next";
+import {
+  ArrowRightLeft
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Social Graph",
+  description:
+    "PDA-per-relationship social graph on Solana — O(1) follow checks, rent reclamation on unfollow, and sequencer-delegated instructions for the Ephemeral Rollup.",
+};
 
 export default function SocialGraphDocs() {
   return (
