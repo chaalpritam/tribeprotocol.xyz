@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Fingerprint,
   KeyRound,
@@ -21,26 +21,10 @@ import {
   UserCircle,
   Network,
   Code,
-  Terminal,
-  Star
+  Terminal
 } from "lucide-react";
 
 // ─── Data ──────────────────────────────────────────────────────────────────
-
-const container: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
 
 const whyTribeItems = [
   {
@@ -89,7 +73,7 @@ const keyConcepts = [
     icon: Zap,
     term: "Ephemeral Rollup",
     definition:
-      "An optimistic sequencer sequencer that confirms follow/unfollow intents instantly (<50ms), then batches them into Solana L1 instructions every 10 seconds. Real-time feel with L1 finality.",
+      "An optimistic sequencer that confirms follow/unfollow intents instantly (<50ms), then batches them into Solana L1 instructions every 10 seconds. Real-time feel with L1 finality.",
   },
   {
     icon: Code,
@@ -134,10 +118,18 @@ const architectureLayers = [
   {
     icon: Smartphone,
     name: "Applications",
-    repo: "tribe-app · tribeapp.wtf · tribe-ios",
+    repo: "tribeapp.wtf · tribe-app · tribe-ios · tribe-insta",
     color: "#f5f5f5",
     description:
-      "Next.js web clients and a native SwiftUI iOS app. All build signed envelopes locally — the hub never receives plaintext intent.",
+      "Web clients (Next.js) and native SwiftUI iOS apps — a Twitter-shaped one (tribe-ios) and an Instagram-shaped one (tribe-insta). All build signed envelopes locally; the hub never receives plaintext intent.",
+  },
+  {
+    icon: Lock,
+    name: "Shared Swift Core",
+    repo: "tribe-core-swift",
+    color: "#f2f2f2",
+    description:
+      "Byte-for-byte protocol code consumed by both iOS apps — BLAKE3, NaCl box DM crypto, ed25519 envelope signing, BIP39, Solana HD derivation, and the backup file format.",
   },
   {
     icon: Code2,
@@ -190,13 +182,13 @@ const solanaPrograms = [
 
 const repos = [
   {
-    name: "tribeeco",
-    description: "Mono-repo containing all submodules, protocols, and the tribe CLI.",
-    url: "https://github.com/chaalpritam/tribeeco",
+    name: "TribeEco",
+    description: "Mono-repo containing every submodule, the tribe CLI, and Homebrew formulas.",
+    url: "https://github.com/chaalpritam/TribeEco",
   },
   {
     name: "tribe-protocol",
-    description: "12 Solana programs (Anchor): TID, app keys, usernames, social graph, and more.",
+    description: "12 Solana programs (Anchor): TID, app keys, usernames, social graph, hubs, tips, polls, events, and more.",
     url: "https://github.com/chaalpritam/tribe-protocol",
   },
   {
@@ -211,18 +203,38 @@ const repos = [
   },
   {
     name: "tribe-er-server",
-    description: "Ephemeral Rollup sequencer for instant follows.",
+    description: "Ephemeral Rollup sequencer for instant follow/unfollow with 10s L1 settlement.",
     url: "https://github.com/chaalpritam/tribe-er-server",
   },
   {
     name: "tribe-ios",
-    description: "Native SwiftUI iOS client with NaCl-box DMs and BLAKE3 signing.",
+    description: "Native SwiftUI iOS client (Twitter-shaped). BLAKE3 + ed25519 signing, NaCl-box DMs.",
     url: "https://github.com/chaalpritam/tribe-ios",
   },
   {
+    name: "tribe-insta",
+    description: "Native SwiftUI iOS client (Instagram-shaped) — same hub, same envelopes, photo-first surface.",
+    url: "https://github.com/chaalpritam/tribe-insta",
+  },
+  {
+    name: "tribe-core-swift",
+    description: "Shared Swift package consumed by tribe-ios and tribe-insta — protocol crypto and envelope code.",
+    url: "https://github.com/chaalpritam/tribe-core-swift",
+  },
+  {
     name: "tribeapp.wtf",
-    description: "The primary web interface — Next.js + Solana wallet adapter.",
+    description: "Primary web client — Next.js + Solana wallet adapter.",
     url: "https://github.com/chaalpritam/tribeapp.wtf",
+  },
+  {
+    name: "tribe-app",
+    description: "Demo Next.js app shipped via `brew install tribe-app` — points at any hub.",
+    url: "https://github.com/chaalpritam/tribe-demo-app",
+  },
+  {
+    name: "homebrew-tap",
+    description: "Homebrew formulas — `brew install tribe` (hub + ER) and `brew install tribe-app` (demo UI).",
+    url: "https://github.com/chaalpritam/homebrew-tribe",
   },
 ];
 
@@ -467,7 +479,7 @@ export default function Home() {
                 The on-chain layer.
               </h3>
               <p className="mt-4 max-w-[620px] text-[16px] font-medium leading-[1.6] opacity-60">
-                Every program is modular and independently deployed. Identity registries, social graphPDA storage, tips receipts, and trustless karma verification — each has its own Anchor program workspace.
+                Every program is modular and independently deployed. Identity registries, PDA-per-relationship social graph, tip receipts, and trustless karma verification — each has its own Anchor program workspace.
               </p>
             </div>
 
@@ -526,7 +538,7 @@ export default function Home() {
                   Run a Node in Seconds.
                 </h2>
                 <p className="text-zinc-500 mt-4 leading-relaxed font-medium">
-                  Join the distributed network and host your own piece of the protocol. Our Homebrew formula handles everything from dependencies to PostgreSQL configuration automatically.
+                  Join the distributed network and host your own piece of the protocol. The Homebrew formula installs the hub + ER sequencer, sets up Postgres, and auto-generates a unique hub ID so two laptops never collide.
                 </p>
               </div>
 
@@ -539,14 +551,16 @@ export default function Home() {
                 </div>
                 <pre className="text-[13px] font-mono text-white/80 overflow-x-auto leading-relaxed">
                   <code>
-                    <span className="text-zinc-500"># Install the Homebrew tap</span><br/>
-                    brew tap chaalpritam/tribe<br/><br/>
-                    <span className="text-zinc-500"># Install Tribe node</span><br/>
+                    <span className="text-zinc-500"># Tap and install the hub + ER stack</span><br/>
+                    brew tap chaalpritam/tribe<br/>
                     brew install --HEAD tribe<br/><br/>
-                    <span className="text-zinc-500"># Start node services</span><br/>
+                    <span className="text-zinc-500"># Boot Docker services and gossip in</span><br/>
                     <span className="text-primary font-bold">tribe start</span><br/><br/>
-                    <span className="text-zinc-500"># Verify connected peers</span><br/>
-                    tribe peers
+                    <span className="text-zinc-500"># Check peers and sync coverage</span><br/>
+                    tribe peers<br/>
+                    tribe sync<br/><br/>
+                    <span className="text-zinc-500"># Optional: install the demo UI</span><br/>
+                    brew install --HEAD tribe-app && tribe-app
                   </code>
                 </pre>
               </div>
@@ -578,7 +592,7 @@ export default function Home() {
                   Start building in minutes.
                 </h2>
                 <p className="text-zinc-500 mt-4 leading-relaxed font-medium">
-                  One simple, powerful TypeScript client for everything — identity registration, messaging, visual graphs, encrypted DMs, task escrows, events, and karma feeds.
+                  One TypeScript client for the whole protocol — identity, social graph, tweets, encrypted DMs, channels, bookmarks, polls, events, tasks, crowdfunds, tips, stories, search, and karma.
                 </p>
               </div>
 
@@ -592,16 +606,16 @@ export default function Home() {
                 <pre className="text-[12.5px] font-mono text-white/80 overflow-x-auto leading-relaxed">
                   <code>{`import { TribeClient } from '@tribe-protocol/sdk';
 
-const client = TribeClient.forDevnet(wallet);
+const tribe = TribeClient.forDevnet(provider);
 
 // Register a TID on Solana
-await client.identity.tid.register();
+const { tid } = await tribe.identity.tid.register(recovery);
 
 // Publish a signed post
-await client.tweets.publish(tid, "gm from the mesh", appKey);
+await tribe.tweets.publish(tid, "gm from the mesh", appKey);
 
 // Follow someone (instant via Ephemeral Rollup)
-await client.social.follow(myTid, targetTid);`}</code>
+await tribe.social.follow(tid, targetTid);`}</code>
                 </pre>
               </div>
 
